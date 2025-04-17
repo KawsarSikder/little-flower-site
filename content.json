@@ -1,0 +1,29 @@
+{"shirts":[
+  {"count":12, "excludes":[],"price":[
+    {
+      "1":"1200"
+    }
+  ]}
+],
+"pants":[
+  {"count":21, "lastName":"Doe"}
+],
+"short-pants":[
+  {"count":18, "lastName":"Doe"}
+],
+"t_shirts":[
+  {"count":21, "lastName":"Doe"}
+],
+"socks":[
+  {"count":1, "lastName":"Doe"}
+],
+"kids_wears":[
+  {"count":5, "lastName":"Doe"}
+],
+"discover_new":[
+  {"count":9, "lastName":"Doe"}
+],
+"sweaters":[
+  {"count":25, "lastName":"Doe"}
+]
+}
