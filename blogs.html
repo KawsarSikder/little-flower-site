@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little flower Blogs</title>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+                <img src="gallery/whatsapp.jpeg" class="d-block w-100" alt="..." width="30px" height="30px">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+              <a href="https://wa.me/+880 1623-259286" target="_blank">
+                Kawsar Whatsapp
+              </a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+</div>
+
+<div>
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(1, 45, 56);">
+          <div class="container-fluid">
+            <a class="animate-charcter-colorful"><b>Little Flower 💮</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item"></li>
+                  <a class="nav-link" href="./hall_of_fame.html">Hall of fame</a>
+                </li>
+                <li class="nav-item"></li>
+                  <a class="nav-link" href="./about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">---------------</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+</div>
+
+<div>
+    <div class="col-12 text-center">
+        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Blogs</a>
+      </div>
+</div>
+
+<div>
+    <div class="nav-scroller bg-body shadow-sm">
+        <nav class="nav" aria-label="Secondary navigation">
+          <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+          <a class="nav-link active" href="#">
+            Blogs
+            <span class="badge text-bg-light rounded-pill align-text-bottom" id="recblogs"></span>
+              </a>
+              <a class="nav-link" href="./ideas_and_arts.html">Ideas&Arts
+                <span class="badge text-bg-light rounded-pill align-text-bottom" id="recarts"></span>
+              </a>
+              <a class="nav-link" href="./mini_games.html">Mini Games
+                <span class="badge text-bg-light rounded-pill align-text-bottom" id="recminigames"></span>
+              </a>
+              <a class="nav-link" href="./spritual_site.html">Spritual Site
+                <span class="badge text-bg-light rounded-pill align-text-bottom" id="recSp"></span>
+              </a>
+
+        </nav>
+      </div>
+</div>
+
+<div>
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic">Little Flower Blogs</h1>
+          
+          <!-- <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p> -->
+        </div>
+      </div>
+</div>
+<p id="show_blog" style="text-align: justify;
+  text-justify: inter-word;">
+</p>
+<hr>
+
+
+</p>
+    
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>Site built for peace and quiet</p>
+        <p class="mb-0">
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+</body>
+<script src="script.js"></script>
+<script>
+  async function showp() {
+    const data=await getData();
+    
+    for(i=0;i<data.total_item;i++){
+      document.getElementById("show_blog").innerHTML+=
+      "<div id='continue"+[i]+"'><br><br><article class='blog-post'><h2 class='display-5 link-body-emphasis mb-1'>"+data.title[i]+"</h2>  <p class='blog-post-meta'>"+data.publish[i]+" by <a href='#' onclick='return false'>"+data.author[i]+"</a></p>    <div class='row flex-lg-row-reverse align-items-center'>      <div class='col-12 col-sm-8 col-lg-4'>        <center><img src='"+data.img[i]+"' class='d-block mx-lg-auto img-fluid' alt='IMAGE' loading='lazy'></center></div><div class='col-lg-8'><p class='container'>"+data.min_content[i]+"</p><div class='accordion'><div class='accordion-item'><h4 class='accordion-header'><button class='accordion-button'  type='button' data-bs-toggle='collapse' data-bs-target='#collapse"+[i]+"' aria-expanded='true' aria-controls='collapse"+[i]+"'>Continue reading</button></h4><div id='collapse"+[i]+"' class='accordion-collapse collapse' data-bs-parent='#accordionExample'><div class='container'>"+data.content[i]+"<button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse"+[i]+"'aria-controls='collapse"+[i]+"' onclick=location.href='#continue"+[i]+"'>Collapse</button></div></div></div></div></div></div></article><hr>"
+    }
+  }
+  async function getData(){
+        const res=await fetch('content.json');
+        const data=res.json();
+        return data;
+      }
+      showp();
+      getRecNo();
+</script>
+</html>

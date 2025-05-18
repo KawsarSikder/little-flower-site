@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          background-color: black;
+          color: blue;
+          margin: 0;
+          height: 2000px;
+          height:3000px
+        }
+        .char{
+          position: fixed;
+          font-size: 48px;
+          animation: moveleft 2s linear forwards;
+        }
+        @keyframes moveleft {
+          0% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(-100vw);
+            opacity: 0;
+          }
+        }
+      
+      </style>
+</head>
+<body class="moveleft">
+    <script>
+        const characters=["baby","100","critical","pusy"];
+        function spawnCharacter(count){
+            for(i=0;i<count;i++){
+          const charElem = document.createElement("div");
+        charElem.className="char";
+        innerIndex=Math.floor(Math.random()*characters.length);
+        charElem.innerText=characters[innerIndex];
+        const randomTop=Math.random()*window.innerHeight;
+        charElem.style.top=randomTop+"px";
+      
+        charElem.style.left = "100vw";
+        document.body.appendChild(charElem);
+        charElem.addEventListener("animationend",() => {
+          charElem.remove();
+        });
+        }
+    }
+    
+        
+        setInterval(() => {
+            spawnCharacter(1);
+        },5000    );
+      </script>
+</body>
+</html>
