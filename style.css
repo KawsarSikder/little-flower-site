@@ -190,3 +190,66 @@ body {
       background-position: 200% center;
   }
 }
+
+#toast {
+  visibility: hidden; /* Hidden by default */
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+/* Show the toast with animation */
+#toast.show {
+  visibility: visible;
+  animation: fadeinT 0.5s, fadeoutT 0.5s 2.5s;
+}
+
+@keyframes fadeinT {
+  from { bottom: 10px; opacity: 0; }
+  to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadeoutT {
+  from { bottom: 30px; opacity: 1; }
+  to { bottom: 10px; opacity: 0; }
+}
+
+.button-containerGN {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Always 5 buttons per row */
+  gap: 10px;
+  max-width: 500px; /* Limit total grid width on large screens */
+  margin: 20px auto;
+}
+.button-GN {
+  aspect-ratio: 1 / 1; /* Keeps the button square */
+  width: 100%; /* Fills the column */
+  font-size: 1.2rem;
+  background-color: #e0e0e0;
+  border: 2px solid #999;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.button-GN.isred {
+  background-color: #d82a2a;
+  color: white;
+}
+
+.button-GN.isgreen {
+  background-color: #4caf50;
+  color: white;
+}
+
+.button-GN.isblue {
+  background-color: #54c0c4;
+  color: white;
+}
