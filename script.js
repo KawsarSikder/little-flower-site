@@ -139,5 +139,7 @@ function playGame(playerChoice) {
 function refreashRSPG(){
   document.getElementById("playerScore").innerText = 0;
   document.getElementById("botScore").innerText = 0;
+  playerScore = 0;
+  botScore = 0;
 }
 /*End RSPG game*/
